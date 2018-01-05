@@ -25,8 +25,7 @@
 import Foundation
 import UIKit
 import SalesforceSDKCore
-import SalesforceSwiftSDK
-import PromiseKit
+
 class RootViewController : UITableViewController
 {
     var dataRows = [NSDictionary]()
@@ -61,7 +60,7 @@ class RootViewController : UITableViewController
 
         SFRestAPI.sharedInstance().send(request, fail: { error  in
             if let error = error {
-                SFSDKLogger.sharedInstance().log(type(of:self), level:.error, message:"didFailLoadWithError: \(error)")
+                SFSDKLogger.sharedDefaultInstance().log(type(of:self), level:.error, message:"didFailLoadWithError: \(error)")
             }
         }) {jsonResponse in
             if let jsonResonse = jsonResponse {
