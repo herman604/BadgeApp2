@@ -37,7 +37,7 @@ class RootViewController : UITableViewController
         super.loadView()
         self.title = "SDK Swift"
         //Orignal
-        /* */
+        /*
         let restApi = SFRestAPI.sharedInstance()
         restApi.Promises
         .query(soql: "SELECT Name FROM Contact LIMIT 10")
@@ -52,18 +52,18 @@ class RootViewController : UITableViewController
         }.catch { error in
              SalesforceSwiftLogger.log(type(of:self), level:.debug, message:"Error: \(error)")
         }
- 
+ */
     
     
         //My own code
-        /*
+        
         let request = SFRestAPI.sharedInstance().request(forQuery: "SELECT Name FROM ACCOUNT LIMIT 10")
 
-        SFRestAPI.sharedInstance().send(request, fail: { error,arg1  in
+        SFRestAPI.sharedInstance().send(request, fail: { error  in
             if let error = error {
                 SFSDKLogger.sharedInstance().log(type(of:self), level:.error, message:"didFailLoadWithError: \(error)")
             }
-        }) {jsonResponse,arg2 in
+        }) {jsonResponse in
             if let jsonResonse = jsonResponse {
                 UserStore.instrance.upsertEntries(jsonResponse: jsonResponse)
 
@@ -72,7 +72,7 @@ class RootViewController : UITableViewController
                 })
             }
         }
-        
+        /*
         SFRestAPI.sharedInstance().send(request,
                                         fail: { (error) in
             if let error = error {
